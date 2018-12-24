@@ -122,9 +122,9 @@ My final model results were:
 
 I used the same [LeNet architecture](http://yann.lecun.com/exdb/lenet/) and preprocessing codes used in the LeNet lab class. But not able to get beyond 89%.
 Then I improved the preprocessing steps followed in the paper
-["Traffic Sign Recognition with Multi-Scale Convolutional Networks"](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and also added histogram equalization
-Also, I have tweaked the learning rate and epoch to get the above accuracy.
-After this change, I was able to improve the accuracy of the model.
+["Traffic Sign Recognition with Multi-Scale Convolutional Networks"](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and also added histogram equalization.
+Also, I have tweaked the learning rate(to 0.0009) and epoch (to 50).
+After this change, I was able to improve the accuracy of the model as mentioned above.
 
 ### Test a Model on New Images
 
