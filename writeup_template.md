@@ -2,8 +2,6 @@
 
 ## Writeup
 
----
-
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
@@ -92,6 +90,8 @@ My final model consisted of the following layers:
 | Flatten  | outputs 400 |
 | Fully connected		| Input = 400 and Output = 120        							|
 | RELU					|												|
+| Fully connected		| Input = 120 and Output = 84        							|
+| RELU					|												|
 | Fully connected		| Input = 84 and Output = 43 |
 
 
@@ -100,16 +100,16 @@ My final model consisted of the following layers:
 To train the model, I used below parameter values.
 * Optimizer: AdamOptimizer
 * batch size : 128
-* epohs : 50
-* Learning Rate - 0.0009
+* epochs : 50
+* Learning Rate : 0.0009
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* validation set accuracy of 0.946
-* test set accuracy of 0.931
+* validation set accuracy of 0.946 (94.6%)
+* test set accuracy of 0.931(93.1%)
 
- I used the same LeNet Architecture used in the class.I have tweaked the learning rate and epoch to get the above accuracy.
+I used the same LeNet Architecture used in the class.I have tweaked the learning rate and epoch to get the above accuracy.
 
 ### Test a Model on New Images
 
