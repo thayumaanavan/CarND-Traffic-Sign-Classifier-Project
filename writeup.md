@@ -61,7 +61,7 @@ Training                   |  Validation               |  Testing
 
 The pre-processing pipeline consists in three different steps. 
 
-* Grayscale: The RGB channels disappear and only one channel corresponding to intensities remain.This allows to reduce the numbers of channels in the input of the network without decreasing the performance. In fact, as Pierre Sermanet and Yann LeCun mentioned in their paper "Traffic Sign Recognition with Multi-Scale Convolutional Networks", using color channels did not seem to improve the classification accuracy.
+* Grayscale: The RGB channels disappear and only one channel corresponding to intensities remain.This allows to reduce the numbers of channels in the input of the network without decreasing the performance. In fact, as Pierre Sermanet and Yann LeCun mentioned in their paper ["Traffic Sign Recognition with Multi-Scale Convolutional Networks"](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), using color channels did not seem to improve the classification accuracy.
 ```
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ```
