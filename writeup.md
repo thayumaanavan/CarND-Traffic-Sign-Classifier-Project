@@ -23,6 +23,7 @@ The goals / steps of this project are the following:
 [image6]: ./test_images/25.jpg "Traffic Sign 3"
 [image7]: ./test_images/02.jpg "Traffic Sign 4"
 [image8]: ./test_images/22.jpg "Traffic Sign 5"
+[image9]: ./examples/sample_images.PNG "Visualization-sample images"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -55,6 +56,16 @@ Training                   |  Validation               |  Testing
 :-------------------------:|:-------------------------:|:-------------------------:
 ![][image1]                |  ![][image2]              |  ![][image3]
 
+The images come in RGB format and are already contained in numpy arrays and the labels come as a list of integers.
+
+*Image data shape = (32, 32, 3)
+*Number of classes = 43
+
+Every image has a corresponding label and these labels correspond to a category of traffic signal. These categories can be seen in the file signnames.csv.
+
+![][image9] 
+
+
 ### Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
@@ -65,7 +76,7 @@ The pre-processing pipeline consists in three different steps.
 ```
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ```
-* Histogram equalzation: The contrast of the image is enhanced obtaining a more uniform histogram.
+* Histogram equalization: The contrast of the image is enhanced obtaining a more uniform histogram.
 ```
 gray_equalized = cv2.equalizeHist(gray)
 ```
@@ -109,7 +120,11 @@ My final model results were:
 * validation set accuracy of 0.946 (94.6%)
 * test set accuracy of 0.931(93.1%)
 
-I used the same LeNet Architecture used in the class.I have tweaked the learning rate and epoch to get the above accuracy.
+I used the same [LeNet architecture](http://yann.lecun.com/exdb/lenet/) and preprocessing codes used in the LeNet lab class. But not able to get beyond 89%.
+Then I improved the preprocessing steps followed in the paper
+["Traffic Sign Recognition with Multi-Scale Convolutional Networks"](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and also added histogram equalization
+Also, I have tweaked the learning rate and epoch to get the above accuracy.
+After this change, I was able to improve the accuracy of the model.
 
 ### Test a Model on New Images
 
@@ -117,8 +132,20 @@ I used the same LeNet Architecture used in the class.I have tweaked the learning
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+Test 1                     |  Test 2                   |  Test 3   
+:-------------------------:|:-------------------------:|:-------------------------:
+![][image4]               |  ![][image5]             |  ![][image6]              
+
+Test 4                     |  Test 5                   
+:-------------------------:|:-------------------------:
+![][image7]               |  ![][image8]             
+
+
+Below are the qualities of test images which might be difficult to classify:
+The images might be difficult to classify because they are in different size, with water mark and clear shape with no shadow.
+* Test 1 & 4 have watermarks.
+* Test 3 is tilted slightly which may cause difficulty for the model.
+* Test 5 has leaves in some part of the shape and also shadow falling on it.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
